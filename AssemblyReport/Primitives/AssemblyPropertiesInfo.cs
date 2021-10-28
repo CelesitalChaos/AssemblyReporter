@@ -168,7 +168,7 @@ namespace AssemblyReport.Primitives
                 }
                 else
                 {
-                    return CalculateSize(Location);
+                    return Primitives.FileSize.GetReadableFileSize(Location, Primitives.FileSize.NameSize.Short);
                 }
             }
         }
@@ -309,27 +309,6 @@ namespace AssemblyReport.Primitives
         protected virtual void OnPropertyChanged(string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        /// <summary>Calculates the size.</summary>
-        /// <param name="location">The location.</param>
-        /// <returns>The <see cref="string"/>.</returns>
-        private string CalculateSize(string location)
-        {
-            string[] sizes = {"B", "KB", "MB", "GB", "TB"};
-            double length = new FileInfo(Location).Length;
-
-            var order = 0;
-            const int lengthModifier = 1024;
-
-            while ((length >= lengthModifier) && (order < sizes.Length - 1))
-            {
-                order++;
-                length = length / lengthModifier;
-            }
-
-            // Adjust the format string to your preferences. For example "{0:0.#}{1}" would show a single decimal place, and no space.
-            return $"{length:0.##} {sizes[order]}";
         }
 
         #endregion

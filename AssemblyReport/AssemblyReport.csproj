@@ -70,6 +70,7 @@
     <Compile Include="Primitives\DescriptionGenerator\DescriptionGeneratorBase.cs" />
     <Compile Include="Primitives\DescriptionGenerator\GenerationProviders\ConstructorGenerator.cs" />
     <Compile Include="Primitives\DescriptionGenerator\GenerationProviders\MethodGenerator.cs" />
+    <Compile Include="Primitives\FileSize.cs" />
     <Compile Include="Primitives\GeneratorDescriptor.cs" />
     <Compile Include="Primitives\ParamInfo.cs" />
     <Compile Include="Primitives\HierarchyTree\HierarchyTree.cs" />
